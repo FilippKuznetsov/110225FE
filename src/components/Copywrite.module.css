@@ -1,0 +1,23 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+.paragraf{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     flex-direction: column;
+}
+
+.copywriteColor{
+    color: grey;
+     font-size: 24px;
+}
+
+.symbol{
+    color: rgb(255, 0, 123);
+}
+
+
