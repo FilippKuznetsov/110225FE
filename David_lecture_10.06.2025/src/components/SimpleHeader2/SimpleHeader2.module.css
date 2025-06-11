@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+
+.info{
+    background-color: rgb(183, 189, 174);
+    color: #c50d0d;
+}
+.warning{
+    font-size: 40px;
+    background-color: #c50d0d;
+    color: rgb(16, 16, 15);
+}
+.alert{
+    background-color: yellow;
+    color: red;
+}
