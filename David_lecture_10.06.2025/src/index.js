@@ -14,7 +14,7 @@ import Advantages from './components/Advantages/Advantages';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
  <>
-    <App />
+   
     <SimpleExample/>
     <SimpleHeading/>
    <SimpleRandom/>
@@ -22,6 +22,7 @@ root.render(
    <Copywrite/>
    <PersonalCard/>
    <Advantages/>
+    <App />
 </>
 );
 
