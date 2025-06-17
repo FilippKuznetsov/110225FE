@@ -2,18 +2,25 @@ import React from "react";
 import DwarfCard from "../../DwarfCard/DwarfCard";
 import { dwarwes } from "../../DwarfCard/dwarwes";
 
-export default function DwarfsList({listHeaderText='Dwarwes list',dwarwes}) {
-
-const isEmpty=Array.isArray(dwarwes) || dwarwes.length===0;
+export default function DwarfsList({listHeaderText='Dwarwes list',dwarwes=[],describeClickHandler}) {
 
 
-  return (<div>
+return (
 
-<h4>  {  !isEmpty ? 'The Array dwarwes is Empty!' : listHeaderText}</h4>
-{dwarwes && dwarwes.map((el)=>{
-    return(
-        <DwarfCard  key={el} dwarfData={el} /> 
-    )
-})}
-  </div>)
+    <>
+      <h4>{listHeaderText}</h4>
+      {
+        dwarwes && dwarwes.length > 0 ?
+        <div >
+          { dwarwes.map( el => <DwarfCard key={el.name} dwarfData={el}describeClickHandler={describeClickHandler} />)}
+        </div> :
+        <h4>Empty dwarwes list!</h4>
+      }
+    </>
+
+
+)
+
+
+
 }

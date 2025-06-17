@@ -2,7 +2,7 @@ import "./App.css";
 import SimpleParagraph from "./components/SimpleParagraph/SimpleParagraph";
 import DwarfCard from "./DwarfCard/DwarfCard";
 import {
-  dwarwes,
+  dwarwes as originalDwarwesArray,
   middleEarthAreas,
   programe,
   detailed,
@@ -10,16 +10,38 @@ import {
 import SimpleHeader2 from "./components/SimpleHeader2/SimpleHeader2";
 import DwarfAreaCard from "./DwarfCard/DwarfAreaCard";
 import DwarfsList from "./components/DwarfsList/DwarfsList.jsx";
+import { useState } from "react";
+import DwarfForm from "./DwarfCard/DwarfForm/DwarfForm.jsx";
 
 
 
 function App() {
+
+
+const clickHandler=()=>{
+        console.log('This Header was klicked')  
+}
+
+
+const describeClickHandler=()=>{
+  console.log('Clikced on Describe Button');
+  
+}
+
+const[dwarwes,setDwarwes]=useState(originalDwarwesArray)
+
+
+const addNewDwarf=(newDwarw)=>{
+  setDwarwes((oldDwarwArray)=>[...oldDwarwArray,newDwarw])
+}
+
   return (
     <div>
       <SimpleHeader2
         headerText="Hello im HEADER TEXT WITH PROPS"
         type="alert"
         customStyles={{color:'blue',fontSize:'20px'}}
+        clickHandler={clickHandler}
       />
       <div className="myCssClass">Hello World!</div>
       <SimpleParagraph
@@ -32,14 +54,17 @@ function App() {
       {dwarwes.map((val) => {
         return (
           <DwarfCard
+          key={val.name}
             dwarfData={{
-            key:val.name,
             name:val.name,
             nickname: val.nickname,
             age: val.age,
             weapon: val.weapon
+           
             }}
+             describeClickHandler={describeClickHandler}
           />
+          
         );
       })}
 
@@ -73,8 +98,9 @@ function App() {
 
 
       <div>Dwarwes List: 
-        <DwarfsList dwarwes={dwarwes}/>
+        <DwarfsList dwarwes={  dwarwes} describeClickHandler={describeClickHandler}/>
       </div>
+      <DwarfForm addNewDwarf={addNewDwarf}/>
     </div>
   );
 }
